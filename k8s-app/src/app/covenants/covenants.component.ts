@@ -26,8 +26,8 @@ export class CovenantsComponent implements OnInit {
   getEnvInfo(): void{
     this.covenantService.getEnvInfo()
     .subscribe(data => {
-      console.log('skc data '+data["env"]);
-      this.tempEnvironment = data["env"];
+      console.log('skc data '+data);
+      this.tempEnvironment = data;
     });
   }
 

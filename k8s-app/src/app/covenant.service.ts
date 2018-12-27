@@ -15,14 +15,18 @@ const httpOptions = {
 })
 export class CovenantService {
 
-  private testURL = 'assets/config/env1.json'
+  private testURL = 'assets/config/env1.txt'
   constructor(private http: HttpClient) { }
 
-  getEnvInfo():Observable<string>{
-    return this.http.get<string>(this.testURL)
-    .pipe(
-      tap(_ => console.log('fetched environment variable'))
-    );
+  // getEnvInfo():Observable<string>{
+  //   return this.http.get<string>(this.testURL)
+  //   .pipe(
+  //     tap(_ => console.log('fetched environment variable'))
+  //   );
+  // }
+
+  getEnvInfo():Observable<any>{
+    return this.http.get<any>(this.testURL,{responseType:'text'});
   }
 
 
