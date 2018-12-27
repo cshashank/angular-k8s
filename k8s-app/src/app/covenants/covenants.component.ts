@@ -21,10 +21,14 @@ export class CovenantsComponent implements OnInit {
   }
 
   // app/assets/config/env1
+  tempEnvironment = "base";
 
   getEnvInfo(): void{
     this.covenantService.getEnvInfo()
-    .subscribe(data => console.log('skc data '+data["env"]));
+    .subscribe(data => {
+      console.log('skc data '+data["env"]);
+      this.tempEnvironment = data["env"];
+    });
   }
 
    covenant: Covenant = {
