@@ -7,8 +7,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Covenant } from  './covenant';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/text' })
 };
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,10 @@ export class CovenantService {
   //   );
   // }
 
-  getEnvInfo():Observable<any>{
-    return this.http.get<any>(this.testURL,{responseType:'text'});
-  }
 
+  getEnvInfo():any{
+    return this.http.get(this.testURL,{responseType:'text'})
+    // return this.http.get<any>(this.testURL);
+  }
 
 }
